@@ -10,6 +10,7 @@ import SwiftUI
 
 struct NewNoteView: View {
     @Environment(\.modelContext) var modelContext
+    @Environment(\.dismiss) var dismiss
     @Bindable var note: Note
     @Bindable var category: Category
 
@@ -22,21 +23,35 @@ struct NewNoteView: View {
     }
     
     var body: some View {
-        TextField("Write your note", text: $note.text)
-        CustomColorPicker(selectedColor: $selectedColor)
-        TextField("Note Category", text: $category.name)
+        List {
+            TextField("Write your note", text: $note.text)
+            CustomColorPicker(selectedColor: $selectedColor)
+            TextField("Note Category", text: $category.name)
+        }
         Button("Save") {
             createNote()
+            dismiss()
         }
     }
     
     func createNote() {
-        // Do not modify the original category, create a new instance of it
-        let newCategory = Category(colorHex: selectedColor.toHex(), name: category.name)
-        
-        // Create the new note with the correct category
-        let newNote = Note(text: note.text, category: newCategory)
-        modelContext.insert(newNote)
+        do {
+            // Try to find an existing category with the same name
+            let existingCategories = try modelContext.fetch(FetchDescriptor<Category>())
+            
+            if let existingCategory = existingCategories.first(where: { $0.name == category.name }) {
+                let newNote = Note(text: note.text, category: existingCategory)
+                modelContext.insert(newNote)
+            } else {
+                // If no category exists, create a new one
+                let newCategory = Category(colorHex: selectedColor.toHex(), name: category.name)
+                let newNote = Note(text: note.text, category: newCategory)
+                modelContext.insert(newCategory) // Save the new category
+                modelContext.insert(newNote)
+            }
+        } catch {
+            print("Failed to fetch categories: \(error)")
+        }
     }
     
 }
