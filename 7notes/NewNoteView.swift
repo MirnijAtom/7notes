@@ -24,9 +24,10 @@ struct NewNoteView: View {
     
     var body: some View {
         List {
-            TextField("Write your note", text: $note.text)
+            TextField("New category", text: $category.name)
             CustomColorPicker(selectedColor: $selectedColor)
-            TextField("Note Category", text: $category.name)
+            TextField("Write your note", text: $note.text)
+            
         }
         Button("Save") {
             createNote()

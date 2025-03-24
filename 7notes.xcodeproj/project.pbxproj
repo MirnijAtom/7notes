@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A5A41472D81A6D600021B76 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A41462D81A6D600021B76 /* Color+Extensions.swift */; };
 		4A5A41492D81AA1600021B76 /* CustomColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A41482D81AA1600021B76 /* CustomColorPicker.swift */; };
+		4ABF57F82D8B0E710075045F /* newNoteInCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABF57F72D8B0E710075045F /* newNoteInCategoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		4A6CF3402D80CB7700BFB801 /* 7notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 7notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6CF3502D80CB7900BFB801 /* 7notesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 7notesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6CF35A2D80CB7900BFB801 /* 7notesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 7notesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ABF57F72D8B0E710075045F /* newNoteInCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newNoteInCategoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -82,6 +84,7 @@
 		4A6CF3372D80CB7700BFB801 = {
 			isa = PBXGroup;
 			children = (
+				4ABF57F72D8B0E710075045F /* newNoteInCategoryView.swift */,
 				4A5A41482D81AA1600021B76 /* CustomColorPicker.swift */,
 				4A5A41462D81A6D600021B76 /* Color+Extensions.swift */,
 				4A6CF3422D80CB7700BFB801 /* 7notes */,
@@ -247,6 +250,7 @@
 			files = (
 				4A5A41472D81A6D600021B76 /* Color+Extensions.swift in Sources */,
 				4A5A41492D81AA1600021B76 /* CustomColorPicker.swift in Sources */,
+				4ABF57F82D8B0E710075045F /* newNoteInCategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
